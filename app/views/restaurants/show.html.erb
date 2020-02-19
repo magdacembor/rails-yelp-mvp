@@ -1,0 +1,15 @@
+<%= render '/layouts/navbar' %>
+<div class="container">
+  <h3><%= @restaurant.name %></h3>
+  <p>Category:  <%= @restaurant.category %></p>
+  <p>Address:  <%= @restaurant.address %></p>
+  <p><%= @restaurant.phone_number %></p>
+  <hr>
+  <h4>Reviews</h4>
+  <%= link_to 'Add review', new_restaurant_review_path(@restaurant) %>
+  <hr>
+  <% @restaurant.reviews.each do |review| %>
+    <p> <%= review.content %> <%= review.rating %></p>
+    <hr>
+  <% end %>
+</div>
